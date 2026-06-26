@@ -1,0 +1,188 @@
+/* max-button/assets/css/style.css */
+
+#max-button-wrapper {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  z-index: 9999;
+}
+
+.max-button-bubble {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.max-button-item {
+  width: 56px !important;
+  height: 56px !important;
+  border-radius: 50% !important;
+  /* glass blue */
+  background: rgba(46, 114, 210, 0.15) !important;
+
+  /* fon blur */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  /* soft border */
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+
+  position: relative;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  transition: transform 0.3s ease !important;
+  overflow: visible !important; /* или просто убрать */
+  position: relative;
+}
+
+.max-button-item:hover {
+  transform: scale(1.1);
+}
+
+.max-button-item img {
+  width: 28px !important;
+  height: 28px !important;
+  object-fit: contain !important;
+  display: block !important;
+  z-index: 2;
+  position: relative;
+}
+
+.max-button-scope .max-button-settings input[type="text"] {
+  width: 100%;
+  max-width: 600px;
+  box-sizing: border-box;
+}
+
+.max-button-scope .max-button-settings .description a {
+  color: #2e72d2;
+  text-decoration: underline;
+  font-weight: 500;
+}
+.max-button-scope img {
+  width: 48px;
+  height: 48px;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .max-button-scope img {
+    width: 36px;
+    height: 36px;
+  }
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+html[dir="rtl"] #max-button-wrapper {
+  right: auto;
+  left: 20px;
+}
+.max-button-mother::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: #ff3b30; /* Apple red */
+  border-radius: 50%;
+  top: 4px;
+  right: 4px;
+  z-index: 5;
+  transition: background-color 0.3s ease;
+}
+.max-button-mother.indicator-active::after {
+  background-color: #34c759; /* Apple green */
+}
+
+/* bubbles are hidden by default */
+.max-button-bubble {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+  transition: all 0.35s ease;
+}
+
+/* status: open */
+.max-button-bubble.open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.max-button-column {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ================= HINT ================= */
+
+.max-button-mother-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.max-button-hint {
+  position: absolute;
+  right: 60px;
+  bottom: 50%;
+  transform: translateY(50%);
+
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(8px);
+
+  color: #000000;
+
+  padding: 7px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  white-space: nowrap;
+
+  border: 1px solid rgba(0, 0, 0, 0.25);
+
+  box-shadow:
+      0 6px 18px rgba(0,0,0,0.08),
+      inset 0 0 0 1px rgba(255,255,255,0.3);
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition: all 0.35s ease;
+}
+
+/* появление */
+.max-button-hint.visible {
+  opacity: 1;
+  transform: translate(-6px, 50%);
+}
+
+/* ================= VISIBILITY CONTROL ================= */
+
+/* скрыть на мобильных */
+@media (max-width: 768px) {
+  #max-button-wrapper.max-hide-mobile {
+    display: none !important;
+  }
+}
+
+/* скрыть на десктопе */
+@media (min-width: 769px) {
+  #max-button-wrapper.max-hide-desktop {
+    display: none !important;
+  }
+}
+
+/* скрыть полностью */
+#max-button-wrapper.max-hide-all {
+  display: none !important;
+}

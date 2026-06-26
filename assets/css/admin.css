@@ -1,0 +1,160 @@
+/* ===============================
+   Floating Contact Button – Admin
+   =============================== */
+
+.max-button-admin h2 {
+    margin-top: 32px;
+}
+
+/* Buttons list */
+.max-buttons-list {
+    margin-top: 16px;
+    max-width: 640px;
+}
+
+/* Card */
+.max-button-card {
+    background: #ffffff;
+    border: 1px solid #dcdcde;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    cursor: grab;
+}
+
+/* Drag state */
+.max-button-card.ui-sortable-helper {
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    cursor: grabbing;
+}
+
+/* details reset */
+.max-button-card details {
+    padding: 0;
+    margin: 0;
+}
+
+/* summary (header) */
+.max-button-card summary {
+    list-style: none;
+    padding: 14px 16px;
+    font-weight: 600;
+    background: #f6f7f7;
+    border-bottom: 1px solid #e5e5e5;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* remove default marker */
+.max-button-card summary::-webkit-details-marker {
+    display: none;
+}
+
+/* arrow */
+.max-button-card summary::before {
+    content: "▸";
+    display: inline-block;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+}
+
+/* opened arrow */
+.max-button-card details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+/* opened header rounding */
+.max-button-card details[open] summary {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+/* content */
+.max-button-card-content {
+    padding: 16px;
+    background: #ffffff;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+/* inputs */
+.max-button-card-content input[type="text"] {
+    width: 100%;
+    max-width: 420px;
+}
+
+/* PRO card */
+.max-button-card-pro {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.max-button-card-pro summary {
+    background: #f0f0f1;
+}
+
+/* Support block */
+.max-plugin-support {
+    margin-top: 32px;
+    padding: 16px;
+    background: #ffffff;
+    border: 1px solid #dcdcde;
+    border-radius: 8px;
+}
+/* ===============================
+   Indicator toggle (admin)
+   =============================== */
+
+.max-indicator-standalone {
+    margin: 12px 0 24px;
+}
+
+.max-indicator-toggle {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.max-indicator-toggle input {
+    display: none;
+}
+
+/* контейнер для шаров */
+.max-indicator-toggle .indicator-ui {
+    display: flex;
+    gap: 10px;
+    padding: 6px 10px;
+    border-radius: 20px;
+    background: #f1f1f1;
+    border: 1px solid #ddd;
+}
+
+/* общий стиль шара */
+.max-indicator-toggle .dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    opacity: 0.3;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* цвета */
+.max-indicator-toggle .dot.red {
+    background-color: #d63638; /* WP red */
+}
+
+.max-indicator-toggle .dot.green {
+    background-color: #008000;
+}
+
+/* по умолчанию активен красный */
+.max-indicator-toggle input:not(:checked) + .indicator-ui .dot.red {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* при включении — зелёный */
+.max-indicator-toggle input:checked + .indicator-ui .dot.green {
+    opacity: 1;
+    transform: scale(1.1);
+}
